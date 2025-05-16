@@ -1,0 +1,33 @@
+{# <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de personas</title>
+</head>
+<body>
+    <h1>Personas Registradas</h1>
+    <ul>
+        {% for id, nombre in personas %}
+           <li>{{id}}-{{ nombre}}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="/agregar">Agregar nueva persona</a>
+</body>
+</html> #}
+
+
+<!DOCTYPE html>
+<html>
+<head><title>Inicio</title></head>
+<body>
+    <h1>Bienvenido {{ session.usuario if session.usuario else 'Visitante' }}</h1>
+    {% if session.usuario %}
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+    {% else %}
+        <a href="{{ url_for('registro') }}">Registrarse</a> |
+        <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    {% endif %}
+</body>
+</html>

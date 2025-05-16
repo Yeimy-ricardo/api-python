@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Registro</title></head>
+<body>
+    <h1>Registro de Usuario</h1>
+    {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+            <p style="color:red">{{ msg }}</p>
+        {% endfor %}
+    {% endwith %}
+    <form method="POST">
+        <label>Usuario:</label><br>
+        <input type="text" name="username"><br>
+        <label>Correo:</label><br>
+        <input type="email" name="correo"><br>
+        <label>Contraseña:</label><br>
+        <input type="password" name="password"><br>
+        <button type="submit">Registrar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Inicio</a>
+</body>
+</html>
